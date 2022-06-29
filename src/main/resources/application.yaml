@@ -1,0 +1,15 @@
+spring:
+  application:
+  name: conference
+  datasource:
+    url: jdbc:h2:mem:conference
+    username: test
+    password: test
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+logging:
+  level:
+    ROOT: WARN
+    org.springframework: WARN
+    com.popov.*: DEBUG
