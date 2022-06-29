@@ -13,9 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ParticipantServiceImpl implements ParticipantService {
 
     private final ParticipantRepository participantRepository;
-
     private final ParticipantMapper participantMapper;
-
     public ParticipantServiceImpl(ParticipantRepository participantRepository, ParticipantMapper participantMapper) {
         this.participantRepository = participantRepository;
         this.participantMapper = participantMapper;

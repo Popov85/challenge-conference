@@ -30,11 +30,11 @@ public class ConferenceServiceImpl implements ConferenceService {
     @Override
     @Transactional
     public ConferenceDto cancelConference(Long conferenceId) {
-        Conference conference =
+        Conference result =
                 conferenceRepository.findById(conferenceId)
                         .orElseThrow(()->new RuntimeException("Entity not found, conferenceId = "+conferenceId));
-        conference.setCancelled(true);
-        return new ConferenceDto();
+        result.setCancelled(true);
+        return conferenceMapper.toDto(result);
     }
 
 }

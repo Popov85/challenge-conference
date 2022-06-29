@@ -3,6 +3,9 @@ package com.popov.conference_challenge;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Andrey P.
+ */
 @SpringBootApplication
 public class ConferenceChallengeApplication {
 

@@ -54,6 +54,10 @@ public class ConferenceParticipantServiceImpl implements ConferenceParticipantSe
     @Override
     @Transactional
     public void addParticipant(Long conferenceId, Long participantId) {
+        // Are there any free seats?
+        var availableSeats = checkAvailability(conferenceId);
+        if (availableSeats==0)
+            throw new RuntimeException("All the seats have been already booked!");
         ConferenceParticipant conferenceParticipant = new ConferenceParticipant();
         conferenceParticipant.setConference(entityManager.getReference(Conference.class, conferenceId));
         conferenceParticipant.setParticipant(entityManager.getReference(Participant.class, participantId));

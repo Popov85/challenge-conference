@@ -22,14 +22,14 @@ public class ConferenceParticipantController {
     }
 
     @PostMapping(value = "/conferences/{conferenceId}/participants/{participantId}/add")
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.CREATED)
     public void addParticipant(@PathVariable Long conferenceId, @PathVariable Long participantId) {
         log.debug("Adding a participant = {} to conference = {}", participantId, conferenceId);
         conferenceParticipantService.addParticipant(conferenceId, participantId);
     }
 
     @DeleteMapping(value = "/conferences/{conferenceId}/participants/{participantId}/remove")
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeParticipant(@PathVariable Long conferenceId, @PathVariable Long participantId) {
         log.debug("Removing a participant = {} to conference = {}", participantId, conferenceId);
         conferenceParticipantService.removeParticipant(conferenceId, participantId);
