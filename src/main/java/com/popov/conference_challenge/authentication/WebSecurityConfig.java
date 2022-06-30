@@ -2,6 +2,7 @@ package com.popov.conference_challenge.authentication;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -15,6 +16,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig  {
     @Bean
     public UserDetailsService userDetailsService() {
@@ -32,10 +34,7 @@ public class WebSecurityConfig  {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests(authorize -> authorize
-                        .antMatchers("/api/conference-availability/*").hasAnyRole("ADMIN","USER")
-                        .antMatchers("/api/**").hasRole("ADMIN")
-                        .anyRequest().authenticated())
+        http.authorizeRequests(authorize -> authorize.anyRequest().authenticated())
                 .csrf().disable().cors().and()
                 .httpBasic(withDefaults());
         return http.build();

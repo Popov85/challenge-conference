@@ -13,6 +13,23 @@ import static org.hamcrest.CoreMatchers.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class ConferenceControllerTest {
+    @Test
+    void saveConferenceNotAuthenticated() {
+        given()
+                .with()
+                .body(new ConferenceDto(null,
+                        "Java conference",
+                        LocalDate.of(2022, 9, 1),
+                        LocalDate.of(2022, 9, 5),
+                        12,
+                        false))
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .when()
+                .request("POST", "/api/conferences")
+                .then()
+                .statusCode(401);
+    }
 
     @Test
     void saveConferenceLackOfCredentials() {

@@ -1,35 +1,35 @@
 INSERT INTO participant (username, password, active)
-VALUES ('Me', 'testtest', true);
+VALUES ('Me', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('He', 'testtest', true);
+VALUES ('He', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('She', 'testtest', true);
+VALUES ('She', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Mria', 'testtest', true);
+VALUES ('Mria', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Adam', 'testtest', true);
+VALUES ('Adam', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Alex', 'testtest', true);
+VALUES ('Alex', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Sara', 'testtest', true);
+VALUES ('Sara', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Andrew', 'testtest', true);
+VALUES ('Andrew', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('John', 'testtest', true);
+VALUES ('John', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Jarek', 'testtest', true);
+VALUES ('Jarek', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Den', 'testtest', true);
+VALUES ('Den', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);
 
 INSERT INTO participant (username, password, active)
-VALUES ('Boris', 'testtest', true);
+VALUES ('Boris', '$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.', true);

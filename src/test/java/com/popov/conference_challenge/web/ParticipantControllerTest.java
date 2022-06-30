@@ -13,11 +13,24 @@ import static org.hamcrest.CoreMatchers.is;
 class ParticipantControllerTest {
 
     @Test
+    void saveConferenceNotAuthenticated() {
+        given()
+                .with()
+                .body(new ParticipantDto(null, "Me", "$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.", true))
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .when()
+                .request("POST", "/api/participants")
+                .then()
+                .statusCode(401);
+    }
+
+    @Test
     void saveConferenceLackOfCredentials() {
         given()
                 .auth().basic("user", "user")
                 .with()
-                .body(new ParticipantDto(null, "Me", "testtest", true))
+                .body(new ParticipantDto(null, "Me", "$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.", true))
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .when()
@@ -32,7 +45,7 @@ class ParticipantControllerTest {
         given()
                 .auth().basic("admin", "admin")
                 .with()
-                .body(new ParticipantDto(null, "Me", "testtest", true))
+                .body(new ParticipantDto(null, "Me", "$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM.", true))
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .when()
@@ -41,7 +54,7 @@ class ParticipantControllerTest {
                 .statusCode(200)
                 .body("id", is(1))
                 .body("username", is("Me"))
-                .body("password", is("testtest"))
+                .body("password", is("$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM."))
                 .body("active", is(true));
     }
 
@@ -58,7 +71,7 @@ class ParticipantControllerTest {
                 .statusCode(200)
                 .body("id", is(1))
                 .body("username", is("Me"))
-                .body("password", is("testtest"))
+                .body("password", is("$2a$12$E9YBUJDlUTeIfXeEDh26heHQG9GZ4zdeR.6HohvYvOzmcmOzAyTM."))
                 .body("active", is(false));
     }
 }

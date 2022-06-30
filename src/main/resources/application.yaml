@@ -11,5 +11,5 @@ spring:
 logging:
   level:
     ROOT: WARN
-    org.springframework: WARN
+    org.springframework.*: WARN
     com.popov.*: DEBUG

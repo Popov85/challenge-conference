@@ -5,6 +5,7 @@ import com.popov.conference_challenge.service.dto.ConferenceDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,6 +13,7 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @RequestMapping(path = "/api")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class ConferenceController {
 
     private final ConferenceService conferenceService;
