@@ -8,6 +8,5 @@ public interface ConferenceParticipantService {
     Integer checkAvailability(Long conferenceId);
     void addParticipant(Long conferenceId, Long participantId);
     void removeParticipant(Long conferenceId, Long participantId);
-
     Page<ParticipantDto> findAllParticipants(Long conferenceId, Pageable pageable);
 }

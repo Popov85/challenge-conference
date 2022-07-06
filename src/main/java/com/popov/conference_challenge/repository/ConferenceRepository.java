@@ -1,7 +1,8 @@
 package com.popov.conference_challenge.repository;
 
-import com.popov.conference_challenge.repository.entity.Conference;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.popov.conference_challenge.service.domain.Conference;
 
-public interface ConferenceRepository extends JpaRepository<Conference, Long> {
+public interface ConferenceRepository {
+    Conference findById(Long id);
+    Conference save(Conference conference);
 }

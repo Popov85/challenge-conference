@@ -1,24 +1,28 @@
 package com.popov.conference_challenge.repository.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name="conference_participant")
-public class ConferenceParticipant {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ConferenceParticipantEntity {
 
     @EmbeddedId
-    private ConferenceParticipantId conferenceParticipantId = new ConferenceParticipantId();
+    private ConferenceParticipantEntityId conferenceParticipantId = new ConferenceParticipantEntityId();
 
     @MapsId("conferenceId")
     @ManyToOne
     @JoinColumn(name = "conference_id")
-    private Conference conference;
+    private ConferenceEntity conference;
 
     @MapsId("participantId")
     @ManyToOne
     @JoinColumn(name = "participant_id")
-    private Participant participant;
+    private ParticipantEntity participant;
 }

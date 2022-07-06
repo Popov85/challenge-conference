@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConferenceParticipantId implements Serializable {
+public class ConferenceParticipantEntityId implements Serializable {
     @Column(name = "conference_id")
     private Long conferenceId;
 

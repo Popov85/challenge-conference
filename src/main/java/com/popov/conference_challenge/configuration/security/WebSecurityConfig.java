@@ -1,4 +1,4 @@
-package com.popov.conference_challenge.authentication;
+package com.popov.conference_challenge.configuration.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
