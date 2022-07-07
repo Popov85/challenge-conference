@@ -5,12 +5,14 @@ import com.popov.conference_challenge.repository.entity.ajacency_lists.Departmen
 import com.popov.conference_challenge.service.dto.adjacency_lists.DepartmentInDto;
 import com.popov.conference_challenge.service.dto.adjacency_lists.DepartmentOutDto;
 import com.popov.conference_challenge.service.mapper.adjacency_lists.DepartmentMapper;
+import com.popov.conference_challenge.service.mapper.adjacency_lists.transformer.DepartmentTransformer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -20,11 +22,14 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     private final DepartmentRepository departmentRepository;
 
+    private final DepartmentTransformer departmentTransformer;
     private final DepartmentMapper departmentMapper;
 
     public DepartmentServiceImpl(DepartmentRepository departmentRepository,
+                                 DepartmentTransformer departmentTransformer,
                                  DepartmentMapper departmentMapper) {
         this.departmentRepository = departmentRepository;
+        this.departmentTransformer = departmentTransformer;
         this.departmentMapper = departmentMapper;
     }
 
@@ -43,7 +48,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     @Transactional(readOnly = true)
-    public Set<DepartmentOutDto> findSubTreeById(Long departmentId) {
+    public Map<DepartmentOutDto, Set<DepartmentOutDto>> findSubTreeById(Long departmentId) {
         Set<Department> result = new HashSet<>();
         // 1) departmentId = null
         // 2) departmentId <> null
@@ -62,7 +67,7 @@ public class DepartmentServiceImpl implements DepartmentService {
                 }
             }
         }
-        return result.stream()
-                .map(d->departmentMapper.toDto(d)).collect(Collectors.toSet());
+        return departmentTransformer.toInverted(result.stream()
+                .map(d->departmentMapper.toDto(d)).collect(Collectors.toSet()));
     }
 }

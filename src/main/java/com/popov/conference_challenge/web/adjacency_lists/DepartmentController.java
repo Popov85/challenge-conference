@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Map;
 import java.util.Set;
 
 @Slf4j
@@ -32,13 +33,13 @@ public class DepartmentController {
     }
 
     @GetMapping(value = "/departments/sub-tree", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<DepartmentOutDto> findSubTreeFromTop() {
+    public Map<DepartmentOutDto, Set<DepartmentOutDto>> findSubTreeFromTop() {
         log.debug("Requested all departments sub tree for conference with id = {}", "top");
         return departmentService.findSubTreeById(null);
     }
 
     @GetMapping(value = "/departments/{departmentId}/sub-tree", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<DepartmentOutDto> findSubTreeById(@PathVariable Long departmentId) {
+    public Map<DepartmentOutDto, Set<DepartmentOutDto>> findSubTreeById(@PathVariable Long departmentId) {
         log.debug("Requested all departments sub tree for conference with id = {}", departmentId);
         return departmentService.findSubTreeById(departmentId);
     }
