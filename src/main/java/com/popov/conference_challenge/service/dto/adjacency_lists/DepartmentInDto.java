@@ -1,4 +1,4 @@
-package com.popov.conference_challenge.service.dto.closure_tables;
+package com.popov.conference_challenge.service.dto.adjacency_lists;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +11,9 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DepartmentDto {
+public class DepartmentInDto {
     private Long id;
+    private Long parentId;
     @NotNull
     @Size(min = 2, max = 50)
     private String name;

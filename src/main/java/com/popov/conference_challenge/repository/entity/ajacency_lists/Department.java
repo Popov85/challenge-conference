@@ -1,4 +1,4 @@
-package com.popov.conference_challenge.repository.entity.closure_tables;
+package com.popov.conference_challenge.repository.entity.ajacency_lists;
 
 import lombok.Data;
 
@@ -12,6 +12,10 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Department parent;
 
     @Column(name = "name")
     private String name;
