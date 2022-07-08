@@ -10,9 +10,10 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DepartmentOutInvertedDto {
+public class DepartmentOutInvertedL1Dto {
     private Long id;
-    private Set<DepartmentOutInvertedDto> children = new HashSet<>();
+    private Long parentId;
+    private Set<DepartmentOutInvertedL2Dto> children = new HashSet<>();
     private String name;
     private Integer members;
     private Boolean archived = false;

@@ -1,10 +1,15 @@
 package com.popov.conference_challenge.repository.entity.ajacency_lists;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name ="department")
 public class Department {
@@ -17,6 +22,10 @@ public class Department {
     @JoinColumn(name = "parent_id")
     private Department parent;
 
+    @OrderBy("name ASC")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
+    private Set<Department> children;
+
     @Column(name = "name")
     private String name;
 
@@ -25,4 +34,15 @@ public class Department {
 
     @Column(name = "archived")
     private Boolean archived;
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                //", children=" + children +
+                ", name='" + name + '\'' +
+                ", members=" + members +
+                ", archived=" + archived +
+                '}';
+    }
 }
